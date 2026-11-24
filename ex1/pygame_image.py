@@ -24,16 +24,29 @@ def main():
 
         key_lst = pg.key.get_pressed()
 
-        koka_rct.move_ip((-1, 0))
+        k = (-1, 0)
 
         if key_lst[pg.K_UP]:
-            koka_rct.move_ip((0, -1))
+            k = (-1, -1)
         if key_lst[pg.K_DOWN]:
-            koka_rct.move_ip((0, +1))
+            k = (-1, +1)
         if key_lst[pg.K_LEFT]:
-                koka_rct.move_ip((-1, 0))
+            k = (-2, 0)
         if key_lst[pg.K_RIGHT]:
-                koka_rct.move_ip((+2, 0))
+            k = (+1, 0)
+
+        koka_rct.move_ip((k))
+
+        # koka_rct.move_ip((-1, 0))
+
+        # if key_lst[pg.K_UP]:
+        #     koka_rct.move_ip((0, -1))
+        # if key_lst[pg.K_DOWN]:
+        #     koka_rct.move_ip((0, +1))
+        # if key_lst[pg.K_LEFT]:
+        #     koka_rct.move_ip((-1, 0))
+        # if key_lst[pg.K_RIGHT]:
+        #     koka_rct.move_ip((+2, 0))
 
         x = tmr % 3200
         screen.blit(bg_img, [-x, 0])
