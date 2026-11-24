@@ -10,6 +10,8 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
+    bg_img2 = pg.image.load("fig/pg_bg.jpg")
+    bg_img2 = pg.transform.flip(bg_img2, True, False)
     koka_img = pg.image.load("fig/3.png")
     koka_img = pg.transform.flip(koka_img, True, False)
 
@@ -18,8 +20,10 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        x = tmr
+        x = tmr % 3200
         screen.blit(bg_img, [-x, 0])
+        screen.blit(bg_img2, [-x + 1600, 0])
+        screen.blit(bg_img, [-x + 3200, 0])
         screen.blit(koka_img, [300, 200])
         pg.display.update()
         tmr += 1        
