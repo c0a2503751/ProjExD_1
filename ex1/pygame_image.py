@@ -14,16 +14,21 @@ def main():
     koka_img = pg.image.load("fig/3.png")
     koka_img = pg.transform.flip(koka_img, True, False)
 
+    bg_x = 0
+
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [bg_x, 0])
         screen.blit(koka_img, [300, 200])
+
+        bg_x -= 1
+
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200)
 
 
 if __name__ == "__main__":
